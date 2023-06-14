@@ -9,6 +9,8 @@ class Post < ApplicationRecord
   validates :comments_counter, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
   validates :likes_counter, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
 
+  private
+
   # A method that updates the posts counter for a user.
   def posts_counter_update
     author_id = author.id
