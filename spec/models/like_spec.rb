@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe Like, type: :model do
-  describe 'Validations For Likes' do
+  describe 'Validations For the Like model' do
     before(:each) do
-      @like = Like.new(author_id: 1, post_id: 3)
+      @like = Like.new(author_id: 1, post_id: 6)
     end
 
     before { @like }

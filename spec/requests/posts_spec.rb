@@ -4,21 +4,21 @@ RSpec.describe 'Posts', type: :request do
   describe 'GET /index' do
     context 'when page is opened ' do
       it 'return a correct response' do
-        get '/users/:user_id/posts'
+        get '/users/:id/posts'
         expect(response).to have_http_status(200)
         expect(response).to render_template(:index)
-        expect(response.body).to include('Lists all posts for a particular user')
+        expect(response.body).to include('List of users posts here')
       end
     end
   end
 
   describe 'GET /show' do
-    context 'when page is opened ' do
+    context 'when the page is opened ' do
       it 'return a correct response' do
-        get '/users/:user_id/posts/:id'
+        get '/users/:id/posts/:id'
         expect(response).to have_http_status(200)
         expect(response).to render_template(:show)
-        expect(response.body).to include('Shows infomation for a particular users posts')
+        expect(response.body).to include('Details of a specific post of a user')
       end
     end
   end

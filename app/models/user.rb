@@ -1,13 +1,11 @@
 class User < ApplicationRecord
-  has_many :posts
-  has_many :comments, through: :posts
-  has_many :likes, through: :posts
+  has_many :posts, foreign_key: 'user_id'
+  has_many :comments, foreign_key: 'user_id'
+  has_many :likes, foreign_key: 'user_id'
 
-  validates :name, presence: true, length: { in: 2..25 }
-  validates :posts_counter, presence: true, length: { in: 1..10 }, numericality: { only_integer: true }
-
-  # A method that returns the 3 most recent posts for a given user.
-  def recent_posts
-    Post.where(author: self).order(created_at: :desc).limit(3)
+  def recent_three_posts
+    posts.order(created_at: :desc).limit(3)
   end
+  validates :Name, presence: true, length: { in: 6..25 }
+  validates :PostsCounter, presence: true, length: { in: 0..10 }, numericality: { only_integer: true }
 end

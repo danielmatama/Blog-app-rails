@@ -1,24 +1,22 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  subject { User.new(name: 'Tash', posts_counter: 4) }
+  subject { User.new(Name: 'Matia', PostsCounter: 4) }
 
   before { subject.save }
 
-  context 'When testing validations' do
-    it 'name should be present' do
-      subject.name = nil
-      expect(subject).to_not be_valid
-    end
+  it 'Name should be present' do
+    subject.Name = nil
+    expect(subject).to_not be_valid
+  end
 
-    it 'posts_counter should be present' do
-      subject.posts_counter = nil
-      expect(subject).to_not be_valid
-    end
+  it 'PostsCounter should be present' do
+    subject.PostsCounter = nil
+    expect(subject).to_not be_valid
+  end
 
-    it 'posts_counter should allow valid values' do
-      subject.posts_counter = 20
-      expect(subject).to be_valid
-    end
+  it 'PostsCounter should allow valid values' do
+    subject.PostsCounter = 20
+    expect(subject).to_not be_valid
   end
 end

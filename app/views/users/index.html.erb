@@ -1,46 +1,17 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 divansitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-<html xmlns = "http://www.w3.org/1999/xhtml">
 
-   <head>
-      <meta http-equiv = "Content-Type" content = "text/html; charset = iso-8859-1" />
-      <meta http-equiv = "Content-Language" content = "en-us" />
-      <title>Blog App</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-   </head>
-
-   <body>
-      <div>
-
-         <div class="container text-center">
-            <h1>Blog App</h1>
-         </div>
-
-         <main>
-         <div class="container text-center">
-            <% if @users.empty? %>
-            <p>There are no users in the system.</p>
-            <% else %>
-            <% @users.each do |user| %> 
-
-              <div class="row justify-content-md-center mb-3">
-              <div class="col col-lg-2">
-              <%= image_tag user.photo, size: "50x50" %>
-              </div>
-                <div class="col col-lg-4 border d-flex align-items-center gap-5">
-
-                    <h2><%= link_to user.name, user_path(user) %></h2>
-                    <h5>Number of posts: <%= user.posts_counter %></h5>
-                </div>
-            </div>
-
-                <% end %>
-            <% end %>
-         </div>
-         </main>
-      </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-   </body>
-
-</html>
+<div class="container flex_display">
+<% @users.each do |user| %>
+  <div class="users-container flex_display">
+    <div class="person-image">
+    
+    
+     
+    </div>
+    <div class="user_details">
+      <h2><%= link_to user.Name, user, class: "link_button"  %></h2>
+      <p>Number of posts: <%= user.PostsCounter %></p>
+    </div>
+  </div>
+<%end%>
+</div>

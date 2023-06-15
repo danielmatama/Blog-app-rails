@@ -2,8 +2,8 @@ require 'rails_helper'
 
 RSpec.describe 'Users', type: :request do
   describe 'GET /index' do
-    context 'when page is opened ' do
-      it 'has to return a correct response' do
+    context 'when the page is opened ' do
+      it ' return a correct response' do
         get '/users'
         expect(response).to have_http_status(200)
         expect(response).to render_template(:index)
@@ -18,7 +18,7 @@ RSpec.describe 'Users', type: :request do
         get '/users/:id'
         expect(response).to have_http_status(200)
         expect(response).to render_template(:show)
-        expect(response.body).to include('Show all users')
+        expect(response.body).to include('Details of the user which includes both Bio and Posts')
       end
     end
   end

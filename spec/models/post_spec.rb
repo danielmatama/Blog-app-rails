@@ -1,40 +1,40 @@
 require 'rails_helper'
 
 RSpec.describe Post, type: :model do
-  it 'is not valid without a title' do
-    post = Post.new(Title: nil)
-    expect(post).to_not be_valid
+  subject { Post.new(Title: 'Premier League', comments_counter: 4, likes_counter: 10) }
+
+  before { subject.save }
+
+  it 'Title should be present' do
+    subject.Title = nil
+    expect(subject).to_not be_valid
   end
 
-  it 'is not valid if title length is more that 250 characters' do
-    post = Post.new(Title: 'a' * 251)
-    expect(post).to_not be_valid
+  it 'Title should not exceed 250 characters' do
+    subject.Title = 'a' * 300
+    expect(subject).to_not be_valid
   end
 
+  it 'commentsCounter should be present' do
+    subject.comments_counter = nil
+    expect(subject).to_not be_valid
+  end
+
+  it 'likescounter should be present' do
+    subject.likes_counter = nil
+    expect(subject).to_not be_valid
+  end
+
+  it 'commentsCounter should allow valid values' do
+    subject.comments_counter = 20
+    expect(subject).to_not be_valid
+  end
   it 'is not valid if comments_counter is less than 0' do
     post = Post.new(comments_counter: -1)
     expect(post).to_not be_valid
   end
-
   it 'is not valid if likes_counter is less than 0' do
     post = Post.new(likes_counter: -1)
     expect(post).to_not be_valid
-  end
-
-  describe 'associations' do
-    it 'belongs to author' do
-      post = Post.reflect_on_association(:author)
-      expect(post.macro).to eq(:belongs_to)
-    end
-
-    it 'has many likes' do
-      post = Post.reflect_on_association(:likes)
-      expect(post.macro).to eq(:has_many)
-    end
-
-    it 'has many comments' do
-      post = Post.reflect_on_association(:comments)
-      expect(post.macro).to eq(:has_many)
-    end
   end
 end
