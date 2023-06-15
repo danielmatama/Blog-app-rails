@@ -54,11 +54,10 @@ After you're finished please remove all the comments and instructions!
 
 > The Blog App is an example of a blog website built using Ruby on Rails and PostgreSQL.
 
-## 🛠 Built With <a name="built-with"></a>
+## 🛠 Built With <a name= ruby, rails></a>
 
 ### Tech Stack <a name="tech-stack"></a>
 
-> Describe the tech stack and include only the relevant sections that apply to your project.
 
 <details>
   <summary>Client</summary>
@@ -155,8 +154,6 @@ Example:
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-> Describe 1 - 3 features you will add to the project.
-
 - [ ] **Process data in models**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -165,19 +162,11 @@ Example:
 
 ## 🤝 Contributing <a name="contributing"></a>
 
-Contributions, issues, and feature requests are welcome!
-
-Feel free to check the [issues page](../../issues/).
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- SUPPORT -->
 
 ## ⭐️ Show your support <a name="support"></a>
-
-> Write a message to encourage readers to support your project
-
-If you like this project...
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
