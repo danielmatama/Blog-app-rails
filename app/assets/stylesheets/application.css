@@ -19,62 +19,73 @@
   box-sizing: border-box;
 }
 
-.flex_display {
+.flex {
   display: flex;
-  flex-direction: row;
 }
 
 body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100%;
-  background-color: whitesmoke;
+  height: 100vh;
 }
 
-.container {
+.main-container {
   width: 60%;
   margin-top: 2%;
-  gap: 5%;
+  gap: 1%;
   flex-direction: column;
-  height: 100%;
+  height: 100vh;
 }
 
-.users-container {
-  margin-top: 4px;
-  gap: 32px;
+.users-wrapper {
+  margin-top: 3%;
+  gap: 2rem;
   width: 100%;
 }
 
-.user_details,
+.user-details,
 .user-bio,
-.users_post,
-.comments_content,
+.users-post,
+.comments-cont,
 .post-container {
   border: 2px solid black;
   width: 100%;
-  padding: 20px;
-  margin-top: 0.3125rem;
+  padding: 1rem;
+  margin-top: 5px;
 }
 
-.user_details > p {
+.user-details > p {
   text-align: end;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.users-post > p,
+.user-bio > p {
+  margin: 10px 0;
+}
+
+.users-post > h2 {
+  margin-bottom: 20px;
+}
+
+.users-post > h4 {
+  font-weight: 200;
+  text-align: end;
 }
 
 .user-posts > button {
-  margin-left: 400px;
-  margin-top: 20px;
+  margin-top: 1rem;
+  margin-left: 40%;
 }
 
-.link_button {
+.link-button {
   text-decoration: none;
-  color: #000;
-  font-size: 1.125rem;
+  color: black;
+  font-size: 20px;
 }
 
-.posts-container {
-  margin-bottom: 4px;
+.posts-enclosure {
+  margin-bottom: 5%;
 }
 
 .post-container > h6 {
@@ -82,6 +93,24 @@ body {
 }
 
 .pagination {
-  margin-left: 400px;
-  font-size: 18px;
+  margin-left: 40%;
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+
+.padd_post {
+  margin-left: 20%;
+}
+
+.img-cont > img {
+  border: 2px solid black;
+  padding: 0;
+}
+
+.link-button:hover {
+  color: red;
+}
+
+.like {
+  cursor: pointer;
 }

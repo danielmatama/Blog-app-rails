@@ -1,41 +1,37 @@
+<div class="main-container">
+  <div class="users-wrapper flex">
+    <div class="img-cont">
+      <%= image_tag @user.photo, :size => "90x90", alt: "user photo" %>
+    </div>
+    <div class="user-details">
+      <h2><%= @user.name %></h2>
+      <p>Number of posts: <%= @user.posts_counter %></p>
+    </div>
+  </div>
 
-
-<div class="container">
-<div class="users-container flex_display">
-   <div class="person-image">
-   
-  
-
-
-    
-   </div>
-   <div class="user_details">
-     <h2><%= @user.Name %></h2>
-     <p>Number of posts: <%= @user.PostsCounter %> </p>
-   </div>
+  <% @posts.each do |post| %>
+    <div class="posts-enclosure">
+      <div class="users-post">
+        <h2><%= link_to "Post title: #{post.title}", user_post_path(@user.id, post.id), class: "link-button" %></h2>
+        <p><%= post.text %></p>
+        <h4>Comments: <%=post.comments_counter %>, Likes: <%= post.likes_counter %></h4>
+        <%= form_with url: "/users/#{@user.id}/posts/#{post.id}/likes", model: Like do |form| %>
+          <%= form.submit "Like Post", class: "bg-blue-500 text-white p-2 rounded hover:bg-blue-600 hover:cursor-pointer like" %>
+        <% end %>
+      </div>
+      <div class="comments-cont">
+        <% if post.recent_comment_counter.count.zero? %>
+          <p>No comments on this post yet</p>
+        <% else %>
+        <% post.recent_comment_counter.each do |comment| %>
+          <p><%= comment.author.name %>: <%= comment.text %></p>
+        <% end %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+  <button class="bg-blue-500 text-white p-2 rounded hover:bg-blue-600 pagination"> 
+    <%= link_to 'Add new Post', user_posts_path(@user) + '/new' %>
+  </button>
 </div>
-
-<% @posts.each do |post| %>
-  <div class="posts-container">
-  <div class="users_post">
-      <h2><%= link_to "Post title: #{post.Title}", user_post_path(@user.id, post.id), class: "link_button" %></h2>
-      <p><%= post.Text %></p>
-      <h4>Comments: <%=post.comments_counter %>, Likes: <%= post.likes_counter %></h4>
-      <%= form_with url: "/users/#{@user.id}/posts/#{post.id}/likes" do |form| %>
-        <%= form.submit "Like Post" %>
-      <% end %>
-  </div>
-  <div class="comments_content">
-    <% if post.recent_comments.count.zero? %>
-    <p>No comments on this post yet</p>
-    <% else %>
-    <% post.recent_comments.each do |comment| %>
-      <p><%= comment.user.Name %>: <%= comment.text %></p>
-    <% end %>
-    <% end %>
-  </div>
-  </div>
-<% end %>
-
-<button class="pagination">Pagination</button>
-</div>
+ 

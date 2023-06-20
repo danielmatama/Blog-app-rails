@@ -1,39 +1,36 @@
+<div class="main-container flex">
+  <div class="users-wrapper flex">
+      <div class="img-cont">
+        <%= image_tag @user.photo, :size => "90x90", alt: "user photo" %>
+      </div>
+      <div class="user-details">
+        <h2><%= @user.name %></h2>
+        <p>Number of posts: <%= @user.posts_counter %></p>
+      </div>
+  </div>
 
+  <div class="user-bio">
+    <h3>Bio</h3>
+    <p><%= @user.bio %></p>
+  </div>
 
+  <div class="user-posts">
+    <% if @user.recent_post_counter.count.zero? %>
+    <p><%= @user.name %> has no posts yet</p>
+    <% else %>
+    <% @user.recent_post_counter.each do |post| %>
+    <%= link_to user_post_path(@user.id, post.id), {:class => "link-button"} do%>
+      <div class="users-post">
+        <h2><%= post.title %></h2>
+        <p><%= post.text %></p>
+        <h4>Comments: <%=post.comments_counter %>, Likes: <%= post.likes_counter %></h4>
+      </div>
+      <% end %>
+      <% end %>
+      <% end %>
 
-<div class="container flex_display">
-<div class="users-container flex_display">
-   <div class="person-image">
-   
-  
-    
-   </div>
-   <div class="user_details">
-     <h2><%= @user.Name %></h2>
-     <p>Number of posts: <%= @user.PostsCounter %></p>
-   </div>
-</div>
-
-<div class="user-bio">
-  <h3>Bio</h3>
-  <p><%= @user.Bio %></p>
-</div>
-
-<div class="user-posts">
-  <% if @user.recent_three_posts.count.zero? %>
-  <p>User has no posts yet</p>
-  <% else %>
-  <% @user.recent_three_posts.each do |post| %>
-    <div class="users-post">
-      <h2><%= post.Title %></h2>
-      <p><%= post.Text %></p>
-      <h4>Comments: <%=post.comments_counter %>, Likes: <%= post.likes_counter %></h4>
-    </div>
-    <% end %>
-   <% end %>
-
-   <button>
-     <%= link_to "See all posts", user_posts_path(@user), class: "link_button" %>
-   </button>
-<div>
-</div>
+      <button>
+        <%= link_to "See all posts", user_posts_path(@user), class: "link-button" %>
+      </button>
+  <div>
+ </div>

@@ -1,22 +1,24 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  subject { User.new(Name: 'Matia', PostsCounter: 4) }
+  let(:user) do
+    User.new(
+      name: 'Tom',
+      photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
+      bio: 'Teacher from Mexico.',
+      posts_counter: 5
+    )
+  end
 
   before { subject.save }
 
-  it 'Name should be present' do
-    subject.Name = nil
-    expect(subject).to_not be_valid
-  end
+  it { should have_many :posts }
+  it { should have_many :comments }
+  it { should have_many :likes }
+  it { should validate_presence_of(:name) }
+  it { should validate_numericality_of(:posts_counter) }
 
-  it 'PostsCounter should be present' do
-    subject.PostsCounter = nil
-    expect(subject).to_not be_valid
-  end
-
-  it 'PostsCounter should allow valid values' do
-    subject.PostsCounter = 20
-    expect(subject).to_not be_valid
+  it 'Should output 0 to 3 last comment when recent_posts is called' do
+    expect(subject.recent_post_counter.length).to be_between(0, 3)
   end
 end
