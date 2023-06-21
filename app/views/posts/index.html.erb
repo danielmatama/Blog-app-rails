@@ -1,37 +1,56 @@
-<div class="main-container">
-  <div class="users-wrapper flex">
-    <div class="img-cont">
-      <%= image_tag @user.photo, :size => "90x90", alt: "user photo" %>
-    </div>
-    <div class="user-details">
-      <h2><%= @user.name %></h2>
-      <p>Number of posts: <%= @user.posts_counter %></p>
+<section class="container">
+<div class="row mb-3 shadow-lg p-3 mb-5 bg-body-tertiary rounded d-flex" style="width: auto;">
+     <div class="col m-4", style="width: 15rem; heigth: 15rem;">
+      <% if @user.photo %>
+        <img src="<%= @user.photo %>" class="rounded float-start" alt="...">
+      <% else %>
+          <p> No image found </p>
+      <% end %>
+     </div>
+    <div class="col-md-8">
+      <div class='card-body'>
+        <h1 class="card-title text-decoration-none mt-4"><%= @user.name %></h1>  
+        <h6 class="card-text ,t-2">Number of posts: <span><%= @user.PostCounter %></span></h6>
+       </div>
     </div>
   </div>
-
+<% counter = 1 %>
   <% @posts.each do |post| %>
-    <div class="posts-enclosure">
-      <div class="users-post">
-        <h2><%= link_to "Post title: #{post.title}", user_post_path(@user.id, post.id), class: "link-button" %></h2>
-        <p><%= post.text %></p>
-        <h4>Comments: <%=post.comments_counter %>, Likes: <%= post.likes_counter %></h4>
-        <%= form_with url: "/users/#{@user.id}/posts/#{post.id}/likes", model: Like do |form| %>
-          <%= form.submit "Like Post", class: "bg-blue-500 text-white p-2 rounded hover:bg-blue-600 hover:cursor-pointer like" %>
-        <% end %>
+  <div class="card mt-5  --bs-dark bg-warning border border-dark-subtle" style="width: 80rem;">
+    <div class='card-body'>
+    <h6 class='card-text text-light text-end'>Comments: <%= post.CommentsCounter%> Likes: <%= post.LikesCounter %></h6>
+      <h3 class="card-title text-light">Post #<%= counter %></h3>
+      <h4 class="mb-5 mt-5"><%= post.title %></h4>
+      
+      <h6><%= post.text %></h6>
+      <div class="display flex">
+      <%= link_to 'Create new post', new_user_post_path(@user), class: "btn btn-dark mt-5 mb-0 text-light mr-5"%><br>
+      <%= link_to 'All comments', user_post_path(id: post.id), class: "btn btn-dark mt-5 mb-0 center text-light mr-5", style: "width: auto"%>
+      <%= form_with url: "/users/#{@user.id}/posts/#{post.id}/likes", class: 'like_button' do |form| %>
+      <%= form.submit "Like Post", class: "btn btn-dark mt-5 mb-0 center text-light" %>
       </div>
-      <div class="comments-cont">
-        <% if post.recent_comment_counter.count.zero? %>
-          <p>No comments on this post yet</p>
-        <% else %>
-        <% post.recent_comment_counter.each do |comment| %>
-          <p><%= comment.author.name %>: <%= comment.text %></p>
-        <% end %>
-        <% end %>
-      </div>
-    </div>
-  <% end %>
-  <button class="bg-blue-500 text-white p-2 rounded hover:bg-blue-600 pagination"> 
-    <%= link_to 'Add new Post', user_posts_path(@user) + '/new' %>
-  </button>
-</div>
+      <% end %>
+      
+      
+   </div>
+     <% counter += 1 %>
+    <% post.recent_comments.each do |comment| %>
+    <hr p-2>
+        <div class="card-body">
+          <p>
+            <strong><%= comment.author.name %>:</strong>
+            <span><%= comment.text %></span>
+          </p>
+          
+        </div>
+      <% end %>
+  </div>
+  <div class="text-center">
+
+  </div>
  
+  <% end %>
+  
+  
+  </section>
+     

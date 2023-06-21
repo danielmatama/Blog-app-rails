@@ -7,6 +7,6 @@ RSpec.describe Like, type: :model do
   it 'Post likes counter can be set' do
     subject.post = Post.new(author: @user, title: 'Post One', text: 'This is the post one')
     subject.send(:increment_likes_counter)
-    expect(subject.post.likes_counter).to be(1)
+    expect(subject.post.LikesCounter).to be(1)
   end
 end

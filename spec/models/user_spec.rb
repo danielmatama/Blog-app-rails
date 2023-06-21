@@ -16,9 +16,9 @@ RSpec.describe User, type: :model do
   it { should have_many :comments }
   it { should have_many :likes }
   it { should validate_presence_of(:name) }
-  it { should validate_numericality_of(:posts_counter) }
+  it { should validate_numericality_of(:PostsCounter) }
 
   it 'Should output 0 to 3 last comment when recent_posts is called' do
-    expect(subject.recent_post_counter.length).to be_between(0, 3)
+    expect(subject.recent_posts.length).to be_between(0, 3)
   end
 end
