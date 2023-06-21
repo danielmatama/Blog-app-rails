@@ -14,10 +14,10 @@
  *= require_self
  */
 
- a {
-    text-decoration: none;
- }
+a {
+  text-decoration: none;
+}
 
- a:hover {
-    text-decoration: underline;
- }
+a:hover {
+  text-decoration: underline;
+}

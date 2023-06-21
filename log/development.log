@@ -591,3 +591,15 @@ Processing by Users::SessionsController#new as HTML
 Completed 200 OK in 35ms (Views: 32.6ms | ActiveRecord: 0.0ms | Allocations: 6134)
 
 
+Started GET "/users/sign_up" for 127.0.0.1 at 2023-06-21 12:15:22 +0300
+Processing by Users::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.0ms | Allocations: 14)
+  Rendered devise/shared/_links.html.erb (Duration: 0.5ms | Allocations: 132)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 2.1ms | Allocations: 1274)
+  Rendered users/_header.html.erb (Duration: 0.2ms | Allocations: 162)
+  Rendered layout layouts/application.html.erb (Duration: 6.5ms | Allocations: 4237)
+Completed 200 OK in 8ms (Views: 7.1ms | ActiveRecord: 0.0ms | Allocations: 4873)
+
+
