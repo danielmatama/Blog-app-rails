@@ -36,6 +36,7 @@
       <%= form_with url: "/users/#{@user.id}/posts/#{post.id}/likes", class: 'like_button' do |form| %>
       <%= form.submit "Like a Post", class: "btn btn-dark mt-5 text-light" %>
       </div>
+    
       <% end %>
    </div>
      <% counter += 1 %>
