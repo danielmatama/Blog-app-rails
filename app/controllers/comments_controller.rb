@@ -17,11 +17,6 @@ class CommentsController < ApplicationController
     @comment.author_id = current_user.id
     @comment.post_id = params[:post_id]
     post = Post.find(params[:post_id])
-    # if @comment.save
-    #   redirect_to user_post_path(current_user.id, post)
-    # else
-    #   render :new
-    # end
     respond_to do |format|
       if @comment.save
         format.html do
