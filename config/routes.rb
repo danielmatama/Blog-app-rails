@@ -5,11 +5,10 @@ Rails.application.routes.draw do
     passwords: 'users/passwords'
   }
   root "users#index"
-  
-  resources :users, only: [:index, :show] do
-    resources :posts, only: [:index, :show, :new, :create, :destroy] do
-      resources :comments, only: [:create, :new, :destroy]
-      resources :likes, only: [:create]
-    end
-  end
+      resources :users, only: [:index, :show] do
+        resources :posts, only: [:index, :show, :new, :create, :destroy] do
+          resources :comments, only: [:index, :create, :new, :destroy]
+          resources :likes, only: [:create]
+        end
+      end
 end

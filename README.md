@@ -146,7 +146,7 @@ Example:
 
 - GitHub: [@githubhandle](https://github.com/danielmatama)
 - Twitter: [@twitterhandle](https://twitter.com/danmatama)
-- Linkedin: [@linkedinhandle](https://www.linkedin.com/in/danielmatama-mwebesa/l)
+- Linkedin: [@linkedinhandle](https://www.linkedin.com/in/daniel-matama-mwebesa/l)
 
 
  👤 **Aman Worku**:
