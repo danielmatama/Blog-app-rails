@@ -122,6 +122,8 @@ GEM
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
+    json-schema (3.0.0)
+      addressable (>= 2.8)
     jsonapi-renderer (0.2.2)
     loofah (2.19.1)
       crass (~> 1.0.2)
@@ -149,10 +151,7 @@ GEM
     nio4r (2.5.8)
     nokogiri (1.14.0-x64-mingw-ucrt)
       racc (~> 1.4)
-    nokogiri (1.14.0-x86_64-darwin)
-      racc (~> 1.4)
     orm_adapter (0.5.0)
-    pg (1.4.5)
     pg (1.4.5-x64-mingw-ucrt)
     public_suffix (5.0.1)
     puma (5.6.5)
@@ -216,6 +215,16 @@ GEM
       rspec-mocks (~> 3.11)
       rspec-support (~> 3.11)
     rspec-support (3.12.0)
+    rswag-api (2.8.0)
+      railties (>= 3.1, < 7.1)
+    rswag-specs (2.8.0)
+      activesupport (>= 3.1, < 7.1)
+      json-schema (>= 2.2, < 4.0)
+      railties (>= 3.1, < 7.1)
+      rspec-core (>= 2.14)
+    rswag-ui (2.8.0)
+      actionpack (>= 3.1, < 7.1)
+      railties (>= 3.1, < 7.1)
     rubyzip (2.3.2)
     selenium-webdriver (4.8.0)
       rexml (~> 3.2, >= 3.2.5)
@@ -263,7 +272,6 @@ GEM
 
 PLATFORMS
   x64-mingw-ucrt
-  x86_64-darwin-22
 
 DEPENDENCIES
   active_model_serializers (~> 0.10.13)
@@ -281,6 +289,9 @@ DEPENDENCIES
   rails (~> 7.0.4, >= 7.0.4.1)
   rails-controller-testing
   rspec-rails
+  rswag-api
+  rswag-specs
+  rswag-ui
   selenium-webdriver
   shoulda-matchers (~> 5.0)
   sprockets-rails
@@ -291,7 +302,7 @@ DEPENDENCIES
   webdrivers
 
 RUBY VERSION
-   ruby 3.1.2p20
+   ruby 3.1.3p185
 
 BUNDLED WITH
    2.4.3

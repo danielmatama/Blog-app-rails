@@ -14,7 +14,7 @@
        </div>
     </div>
   </div>
-<% counter = 0 %>
+<% counter = 1 %>
   <% @posts.each do |post| %>
   <div class="card mt-5 mb-5 --bs-dark bg-warning border border-dark-subtle" style="width: 80rem;">
     <div class='card-body'>
@@ -24,9 +24,9 @@
     method: :delete, data: { turbo: false }, 
     class: "btn btn-dark ml-auto justify-content-end" %>
   <% end %>
-  
 </div>
     <h6 class='card-text text-dark text-end'>Comments: <%= post.CommentsCounter%> Likes: <%= post.LikesCounter %></h6> 
+  
       <h3 class="card-title text-light">Post #<%= counter %></h3>
       <h4 class="mb-5 mt-5"><%= post.title %></h4>
       <h6><%= post.text %></h6>
@@ -38,6 +38,8 @@
       </div>
     
       <% end %>
+      
+      
    </div>
      <% counter += 1 %>
     <% post.recent_comments.each do |comment| %>
