@@ -9,6 +9,11 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   # More info at:
   # https://github.com/heartcombo/devise#omniauth
 
+  # GET|POST /resource/auth/twitter
+  # def passthru
+  #   super
+  # end
+
   # GET|POST /users/auth/twitter/callback
   # def failure
   #   super
